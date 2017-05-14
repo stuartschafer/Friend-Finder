@@ -1,41 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Friend Finder</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <!-- This links to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <!--Google glph icon-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/data/friends.js"></script>
 </head>
 <body>
 
+<nav>
+    <div class="nav-wrapper blue lighten-1">
+        <a href="/" class="brand-logo center">Friend Finder</a>
+        <ul class="left hide-on-med-and-down">
+            <li class="active"><a href="/">Survey</a></li>
+            <li><a href="/searchagain">Search Again</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container">
-  <div class="col s12"><h1>Welcome to Friend Finder</h1></div>
+    <div class="col s12 center-align">
+        <h1><strong>Welcome to Friend Finder</strong></h1>
+        <h3>A place to meet other friends, like you!</h3>
+        <h5>Please fill out a few questions to match you with someone else</h5>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s3">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix_name" type="text" class="validate" placeholder="Please enter your first name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s3">
+            <i class="material-icons prefix">add_a_photo</i>
+            <input id="icon_prefix_photo" type="text" class="validate" placeholder="Add a photo (Link to the photo)">
+        </div>
+    </div>
+
+
+
+<label><h5>Question # 1: How much does much affect your personality?</h5>
+</label>
+<select class="browser-default" id="q1">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - Not at all</option>
+    <option value="2">2 - Meh, maybe a smidge</option>
+    <option value="3">3 - Somewhat</option>
+    <option value="4">4 - Kinda a lot</option>
+    <option value="5">5 - I can be a different person</option>
+</select>
+
+<label><h5>Question # 2: Do you think Crossfit is crazy or incredible?</h5>
+</label>
+<select class="browser-default" id="q2">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - They push their bodies waaaay too much, not smart</option>
+    <option value="2">2 - Probably not a good idea</option>
+    <option value="3">3 - Might be OK, might be dangerous</option>
+    <option value="4">4 - I am impressed</option>
+    <option value="5">5 - Talk about peak physical health!</option>
+</select>
+
+<label><h5>Question # 3: Computer coding is a way of life or a fun hobby?</h5>
+</label>
+<select class="browser-default" id="q3">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - Nah, computers will do all the coding one day</option>
+    <option value="2">2 - Not that important in the long run</option>
+    <option value="3">3 - Nice to know, but it's alright if you don't</option>
+    <option value="4">4 - Very important knowledge to have</option>
+    <option value="5">5 - Nothing better than coding!</option>
+</select>
+
+<label><h5>Question # 4: Do you consider Global Warming a real threat, or just a conspiracy?</h5>
+</label>
+<select class="browser-default" id="q4">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - Just a scare tactic, nothing more</option>
+    <option value="2">2 - Needs more research to justify</option>
+    <option value="3">3 - I really don't know. It could be a little of both.</option>
+    <option value="4">4 - We need to be aware of it.</option>
+    <option value="5">5 - Check the news! It's happening! NOW!</option>
+</select>
+
+<label><h5>Question # 5: Which is more important to you: facts or feelings?</h5>
+</label>
+<select class="browser-default" id="q5">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - Feelings, nothing more than feelings</option>
+    <option value="2">2 - Good to know a little bit, but my feelings are more important</option>
+    <option value="3">3 - It's really a little of both</option>
+    <option value="4">4 - Feeling are a little important, but facts are what move the world</option>
+    <option value="5">5 - Just the facts. Feelings just get ion the way.</option>
+</select>
+
+<label><h5>Question # 6: Do you feel companionship is a necessity or an option</h5>
+</label>
+<select class="browser-default" id="q6">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - I prefer to be on my own.  Can't rely on others.</option>
+    <option value="2">2 - It's alright if you're into that.</option>
+    <option value="3">3 - I like it if avaliable, but don't mind if not</option>
+    <option value="4">4 - Pretty much needed</option>
+    <option value="5">5 - I could not be alone at all, not my jam</option>
+</select>
+
+<label><h5>Question # 7: How much does social media affect your mood?</h5>
+</label>
+<select class="browser-default" id="q7">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - I can get irate/estatic</option>
+    <option value="2">2 - Very much so</option>
+    <option value="3">3 - Depends on if I agree with it or not</option>
+    <option value="4">4 - Not really, but only in extreme cases</option>
+    <option value="5">5 - I couldn't care less</option>
+</select>
+
+<label><h5>Question # 8: Is watching a movie fun or a waste of time?</h5>
+</label>
+<select class="browser-default" id="q8">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - No thanks, I prefer the real world</option>
+    <option value="2">2 - Maybe only once in a while</option>
+    <option value="3">3 - I'll watch them on occasion</option>
+    <option value="4">4 - Oh yes, please let me leave reality for a bit</option>
+    <option value="5">5 - Gotta watch the latest and greatest (Opening night!)</option>
+</select>
+
+<label><h5>Question # 9: Does reading a book put you to sleep or ignite your mind?</h5>
+</label>
+<select class="browser-default" id="q9">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - zzzzzz, I think this question put me to sleep</option>
+    <option value="2">2 - Only read when it's something I really care about</option>
+    <option value="3">3 - Depends on how I'm feeling</option>
+    <option value="4">4 - Yeah, I read from time to time</option>
+    <option value="5">5 - Stimulating. The way to learn and improve</option>
+</select>
+
+<label><h5>Question # 10: Is watching the news more informative or depressing?</h5>
+</label>
+<select class="browser-default" id="q10">
+    <option value="" disabled selected>Please select from below</option>
+    <option value="1">1 - Death, crime, politics.  YUCK!</option>
+    <option value="2">2 - News is slanted to the left or right</option>
+    <option value="3">3 - I try to stay impartial and unbiased</option>
+    <option value="4">4 - It's somewhat important</option>
+    <option value="5">5 - It is crutial to know the world around us</option>
+</select> 
+
+<div class="row center-align">
+    <button class="btn waves-effect waves-light" id="submit1" type="submit" name="action">Submit
+        <i class="material-icons right">send</i><i class="material-icons left">send</i>
+    </button>
 </div>
 
+</div>
 
-  <script type="text/javascript">
-    // Question: What does this code do?
-    $("#add-btn").on("click", function(event) {
-      event.preventDefault();
-      var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
-      };
+<!-- <script type="text/javascript">
 
-      // Question: What does this code do??
-      $.post("/api/new", newCharacter)
-      .done(function(data) {
-        console.log(data);
-        alert("Adding character...");
-      });
-    });
-  </script>
+var newFriend = {};
+var allFriends = {};
 
+$("#submit1").on("click", function() {
+    var link = "";
+    var answeredQuestions = 0;
+    newFriend = {
+        name: $("#icon_prefix_name").val(),
+        photo: $("#icon_prefix_photo").val(),
+        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
+    }
+    // This checks to make sure every question is answered and the link is valid
+    for (var i = 0; i < 10; i++) {
+        // This checks to make sure the link is valid
+        if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test($("#icon_prefix_photo").val())) {
+            link = "valid";
+        } else {
+            alert("invalid URL, please enter a valid link");
+            break;
+        }
+        if (newFriend.scores[i] === null || newFriend.name === "" || newFriend.photo === "") {
+            alert("Sorry, but you didn't answer a question.  Also make sure you entered your name and a link to a photo.");
+            break;
+        }
+        answeredQuestions += 1;
+    }
+    
+    // If all conditions are met, then this will run
+    if (answeredQuestions === 10 && link === "valid") {
+        $.post("/api", newFriend).done(function(data) {
+            alert("Adding you to all the friends.  Welcome friend!  Now I'll search for someon e with similar tastes.");
+            // getAllFriendsInfo();
+            window.location = "results";
+        });
+    }
+});
+   
+</script> -->
 </body>
 </html>

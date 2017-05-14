@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <!-- This links to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <!--Google glph icon-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/data/friends.js"></script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-wrapper blue lighten-1">
+        <a href="/" class="brand-logo center">Friend Finder</a>
+        <ul class="left hide-on-med-and-down">
+            <li><a href="/">Survey</a></li>
+            <li><a href="/searchagain">Search Again</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="col s12 center-align">
+        <h1><strong>Welcome to Friend Finder</strong></h1>
+        <h3>A place to meet other friends, like you!</h3>
+        <h5>We found someone with similar responses...</h5>
+    </div>
+</div>
+
+<br>
+<h4 class="center-align">You are closest matched with <span id="match"></span>
+<br>
+<h4>
+    <p>To check later if you have any other matches (when others fill out the form), please visit the Complete page / button</p>
+    <p>Please remember your name... <u><span id="userName"></span></u> and your unique ID#... <u><span id="uniqueID"></span></u>
+</h4>
+
+
+
+<script type="text/javascript">
+// var allFriends = {};
+// var newFriend = {};
+// getAllFriendsInfo();
+
+// function getAllFriendsInfo () {
+//     $.get("/api", function(data) {
+//         allFriends = data;
+//         newFriend = data[(data.length - 1)];
+//         totalFriends = data.length;
+//         checkOtherFriendsScores();
+//     });
+// }
+
+// function checkOtherFriendsScores() {
+//     var scoreArray = [];
+
+//     // This will go through every friend except the last one, since the user is the last person in allFriends
+//     for (var i = 0; i < (allFriends.length - 1); i++) {
+//         var diff = 0;
+//         // This calculates the difference of each question's score and adds the difference
+//         for (var j = 0; j < 10; j++) {
+//             diff += Math.abs(allFriends[i].scores[j] - newFriend.scores[j]);
+//         }
+//         // This pushes the total difference score into an array
+//         // The lowest score in the array is the person (allFriends[]) they are best matched with
+//         scoreArray.push(diff);
+//     }
+
+
+//     indexofSmallestNumber();
+
+//     function indexofSmallestNumber() {
+//         var min = scoreArray[0];
+//         var minIndex = 0;
+//         for (var i = 0; i < scoreArray.length; i++) {
+//             if (scoreArray[i] < min) {
+//                 minIndex = i;
+//                 min = scoreArray[i];
+//             }
+//         }
+//         console.log(minIndex);
+//         // alert("You are closest matched with " + allFriends[minIndex].name);
+//         $("#match").text(allFriends[minIndex].name);
+//         $("#userName").text(newFriend.name);
+//         $("#uniqueID").text(allFriends.length);
+//     }
+// }
+  
+</script>
+
+</body>
+</html>
