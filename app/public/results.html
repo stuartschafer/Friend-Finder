@@ -13,7 +13,10 @@
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <!--Google glph icon-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Link to the javascript file -->
     <script src="/data/friends.js"></script>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" type="text/css" href="/data/style.css">
 </head>
 <body>
 
@@ -36,65 +39,25 @@
 </div>
 
 <br>
-<h4 class="center-align">You are closest matched with <span id="match"></span>
+<h2 class="center-align">You are closest matched with <span id="match"></span></h2>
 <br>
-<h4>
-    <p>To check later if you have any other matches (when others fill out the form), please visit the Complete page / button</p>
-    <p>Please remember your name... <u><span id="userName"></span></u> and your unique ID#... <u><span id="uniqueID"></span></u>
-</h4>
 
+<div class="row">
+    <div class="col m4 offset-m4">
+        <img id="imgMatch" style="height:300px; width:300px;">
+        </div>
+    </div>
+</div>
 
-
-<script type="text/javascript">
-// var allFriends = {};
-// var newFriend = {};
-// getAllFriendsInfo();
-
-// function getAllFriendsInfo () {
-//     $.get("/api", function(data) {
-//         allFriends = data;
-//         newFriend = data[(data.length - 1)];
-//         totalFriends = data.length;
-//         checkOtherFriendsScores();
-//     });
-// }
-
-// function checkOtherFriendsScores() {
-//     var scoreArray = [];
-
-//     // This will go through every friend except the last one, since the user is the last person in allFriends
-//     for (var i = 0; i < (allFriends.length - 1); i++) {
-//         var diff = 0;
-//         // This calculates the difference of each question's score and adds the difference
-//         for (var j = 0; j < 10; j++) {
-//             diff += Math.abs(allFriends[i].scores[j] - newFriend.scores[j]);
-//         }
-//         // This pushes the total difference score into an array
-//         // The lowest score in the array is the person (allFriends[]) they are best matched with
-//         scoreArray.push(diff);
-//     }
-
-
-//     indexofSmallestNumber();
-
-//     function indexofSmallestNumber() {
-//         var min = scoreArray[0];
-//         var minIndex = 0;
-//         for (var i = 0; i < scoreArray.length; i++) {
-//             if (scoreArray[i] < min) {
-//                 minIndex = i;
-//                 min = scoreArray[i];
-//             }
-//         }
-//         console.log(minIndex);
-//         // alert("You are closest matched with " + allFriends[minIndex].name);
-//         $("#match").text(allFriends[minIndex].name);
-//         $("#userName").text(newFriend.name);
-//         $("#uniqueID").text(allFriends.length);
-//     }
-// }
-  
-</script>
+<div class="row">
+    <div class="col m10 offset-m1">
+        <div class="card-panel" id="comeBack">
+            <h5>To check later if you have any other matches, please visit the Search Again page / button and remember...</h5>
+            <li>Your name... <span id="userName"></span></li>
+            <li>Your unique ID#... <span id="uniqueID"></span></li>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,48 @@
+body { background-image: url("/images/background.jpg"); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat; }
+
+h1, h3 {
+	color: blue;
+}
+
+.questions { color: purple; }
+
+.offset-s3, #icon_prefix_name { color: red; }
+
+.notShown {
+	color: green;
+}
+
+#img1 { position: absolute;
+}
+
+#img2 { position: absolute;
+right: 0px; }
+
+.browser-default {
+	background-color: cyan;
+}
+
+p { color: cyan; }
+#comeBack { background-color: orange;
+color: yellow; }
+
+#match { color: red; }
+
+
+/* This is for changing the placeholder color (depending on the browser used) */
+::-webkit-input-placeholder { /* Chrome */
+  color: deeppink;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: deeppink;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: deeppink;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: deeppink;
+  opacity: 1;
+}

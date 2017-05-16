@@ -1,7 +1,16 @@
 $( document ).ready(function() {
 
+// This makes the person's name the user is matched with flash/blink
+function blinker() {
+    $("#match").fadeOut(500);
+    $("#match").fadeIn(500);
+}
+setInterval(blinker, 1000);
+
 var allFriends = {};
 var newFriend = {};
+$("#newSearch").hide();
+$("#imgMatch").hide();
 
 $("#submit1").on("click", function() {
     var link = "";
@@ -17,7 +26,7 @@ $("#submit1").on("click", function() {
         if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test($("#icon_prefix_photo").val())) {
             link = "valid";
         } else {
-            alert("invalid URL, please enter a valid link");
+            alert("Sorry, but that is an invalid URL, please enter a valid link");
             break;
         }
         if (newFriend.scores[i] === null || newFriend.name === "" || newFriend.photo === "") {
@@ -85,10 +94,14 @@ function checkOtherFriendsScores() {
         $("#match").text(allFriends[minIndex].name);
         $("#userName").text(newFriend.name);
         $("#uniqueID").text(allFriends.length);
+        $("#imgMatch").show();
+        $("#imgMatch").attr("src", allFriends[minIndex].photo);
     }
 }
 
-$("#submit").on("click", function() {
+$("#searchAgainSubmit").on("click", function() {
+    $("#imgMatch").hide();
+    $("#searchResult").hide();
     $.get("/api", function(data) {
         position = $("#icon_prefix_photo").val();
         userName = $("#icon_prefix_name").val();
@@ -106,7 +119,7 @@ $("#submit").on("click", function() {
             $("#welcome_back").text("Welcome back " + newFriend.name + "!");
             $(".returningMember").fadeIn("slow");
             $("#newPeeps").text(newPeopleSinceLast);
-            $(".row").fadeOut();
+            $("#searchAgainSubmit").fadeOut();
             $("#submit").hide();
             $("#newSearch").show();
         } else {
@@ -119,37 +132,46 @@ $("#submit").on("click", function() {
 $("#newSearch").on("click", function() {
     $.get("/api", function(data) {
         var scoreArray = [];
-        console.log(data);
+        var diff = 0;
 
         // This will go through every friend except the user's position
         for (var i = 0; i < (data.length); i++) {
             if (i != (position - 1)) {
-                console.log(i);
-                var diff = 0;
+                
                 // This calculates the difference of each question's score and adds the difference
                 for (var j = 0; j < 10; j++) {
                     
                     diff += Math.abs(data[i].scores[j] - newFriend.scores[j]);
                 }
+                
                 // This pushes the total difference score into an array
                 // The lowest score in the array is the person (allFriends[]) they are best matched with
                 scoreArray.push(diff);
+                diff = 0;
+            } else { scoreArray.push(1000);
             }
+            
         }
 
+console.log(scoreArray);
         indexofSmallestNumber();
 
         function indexofSmallestNumber() {
             var min = scoreArray[0];
             var minIndex = 0;
-            for (var i = 0; i < scoreArray.length; i++) {
-                if (scoreArray[i] < min) {
-                    minIndex = i;
-                    min = scoreArray[i];
+            for (var k = 0; k < scoreArray.length; k++) {
+                if (scoreArray[k] < min) {
+                    minIndex = k;
+                    min = scoreArray[k];
                 }
             }
+            $("#searchAgainSubmit").show();
             $("#newSearch").hide();
-            $("#searchResult").text("You are matched closest with " + data[minIndex].name);  
+            $("#searchResult").show();
+            $("#searchResult").text("You are matched closest with " + data[minIndex].name);
+            $("#imgMatch").show();
+            $("#imgMatch").attr("src", data[minIndex].photo);
+
         }
     });
 });
