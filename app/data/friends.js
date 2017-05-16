@@ -56,6 +56,7 @@ if (top.location.pathname === '/results')
 function getAllFriendsInfo () {
     $.get("/api", function(data) {
         allFriends = data;
+        console.log(data);
         newFriend = data[(data.length - 1)];
         totalFriends = data.length;
         checkOtherFriendsScores();
