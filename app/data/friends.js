@@ -9,9 +9,12 @@ setInterval(blinker, 1000);
 
 var allFriends = {};
 var newFriend = {};
+var returning = 0;
 $("#newSearch").hide();
 $("#imgMatch").hide();
+$(".returningMember").hide();
 
+// This is when the user clicks the submit button for the survey page
 $("#submit1").on("click", function() {
     var link = "";
     var answeredQuestions = 0;
@@ -41,6 +44,7 @@ $("#submit1").on("click", function() {
         $.post("/api", newFriend).done(function(data) {
             alert("Adding you to all the friends.  Welcome friend!  Now I'll search for someon e with similar tastes.");
             // getAllFriendsInfo();
+            returning = 555;
             window.location = "results";
         });
     }
@@ -49,6 +53,7 @@ $("#submit1").on("click", function() {
 // This runs when the results page is loaded.  It loads once the user submits a survey.
 if (top.location.pathname === '/results')
 {
+    console.log(returning);
     getAllFriendsInfo();
 }
 
@@ -110,7 +115,7 @@ $("#searchAgainSubmit").on("click", function() {
         newFriend = data[(position - 1)];
 
         // This checks to make sure it is an actual position in the array
-        if (position > data.length) {
+        if (position > data.length || position === "" || userName === "") {
             alert("Sorry, that does not register with an exisiting user.");
             return;
         }

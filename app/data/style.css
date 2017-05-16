@@ -30,6 +30,10 @@ color: yellow; }
 
 #match { color: red; }
 
+#imgMatch {
+	margin-left: 
+}
+
 
 /* This is for changing the placeholder color (depending on the browser used) */
 ::-webkit-input-placeholder { /* Chrome */
