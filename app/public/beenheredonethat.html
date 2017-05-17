@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Friend Finder</title>
-    <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified CSS (Materialize) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,88 +20,90 @@
 </head>
 <body>
 
-<nav>
-    <div class="nav-wrapper blue lighten-1">
-        <a href="/" class="brand-logo center">Friend Finder</a>
-        <ul class="left hide-on-med-and-down">
-            <li><a href="/">Survey</a></li>
-            <li class="active"><a href="/searchagain">Search Again</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="center-align">
-        <div class="row">
-            <h1><strong>Welcome back to Friend Finder</strong></h1>
-            <h3>Search for new friends since you were last here</h3>
-            <h5>Please enter your first name, and unique ID#</h5>
-            <h5>If you do not have that, please visit the survey page first. <a href="/">Click Here!</a> </h5>
+    <!-- Top of the page -->
+    <nav>
+        <div class="nav-wrapper blue lighten-1">
+            <a href="/" class="brand-logo center">Friend Finder</a>
+            <ul class="left hide-on-med-and-down">
+                <li><a href="/">Survey</a></li>
+                <li class="active"><a href="/searchagain">Search Again</a></li>
+            </ul>
         </div>
-    </div>
-</div>
+    </nav>
 
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="input-field col s6 offset-s3">
-            <i class="material-icons prefix btn btn-floating red pulse">account_circle</i>
-            <input id="icon_prefix_name" type="text" class="validate" placeholder=" Please enter your first name">
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6 offset-s3">
-            <i class="material-icons prefix btn btn-floating red pulse">fingerprint</i>
-            <input id="icon_prefix_photo" type="number" class="validate" placeholder=" Please enter your unique ID#">
-        </div>
-    </div>
-</div>
-
-<div class="returningMember">
-    <h3><span id="welcome_back"></span></h3>
-    <h4>There have been <span id="newPeeps"></span> new people here since you last signed up</h4>
-    <h4>Please click the search button to see your current closest match.</h4>
-</div>
-
-<h4>
-    <div id="searchResult"></div>
-</h4> 
-
-<div class="row center-align" id="searchAgainSubmit">
-    <button class="btn-large waves-effect waves-light" id="searchAgainSubmit" type="submit" name="action">Submit
-        <i class="material-icons right">send</i><i class="material-icons left">send</i>
-    </button>
-</div>
-<div class="row center-align" id="newSearch">
-    <button class="btn-large waves-effect waves-light" id="newSearch" type="submit" name="action">Search for Matches
-        <i class="material-icons right">send</i><i class="material-icons left">send</i>
-    </button>
-</div>
-
-
-
-<br>
-
-<div class="row">
-    <div class="col m4 offset-m4">
-        <img id="imgMatch" style="height:300px; width:300px;">
-        </div>
-    </div>
-</div>
-
-<footer class="page-footer blue lighten-1">
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="col s12 left-align">
-                <a class="white-text" href="/">Complete the Survey!</a> | 
-                <a class="white-text" href="/api">See all the Friends (Friends API)</a>
+    <div class="container">
+        <div class="center-align">
+            <div class="row">
+                <h1><strong>Welcome back to Friend Finder</strong></h1>
+                <h3>Search for new friends since you were last here</h3>
+                <h5>Please enter your first name, and unique ID#</h5>
+                <h5>If you do not have that, please visit the survey page first. <a href="/">Click Here!</a> </h5>
             </div>
         </div>
     </div>
-</footer>
+
+    <!-- This is where the user enters their name and ID#.  They are only given an ID# if they have filled out a survey.  If they haven't filled out a survey it will ask them to. -->
+    <div class="container">
+        <div class="row">
+            <div class="input-field col s6 offset-s3">
+                <i class="material-icons prefix btn btn-floating red pulse">account_circle</i>
+                <input id="icon_prefix_name" type="text" class="validate" placeholder=" Please enter your first name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3">
+                <i class="material-icons prefix btn btn-floating red pulse">fingerprint</i>
+                <input id="icon_prefix_photo" type="number" class="validate" placeholder=" Please enter your unique ID#">
+            </div>
+        </div>
+    </div>
+
+    <!-- This is the submit button to check if they entered info for an existing user -->
+    <div class="row center-align" id="searchAgainSubmit">
+        <button class="btn-large waves-effect waves-light" id="searchAgainSubmit" type="submit" name="action">Submit
+            <i class="material-icons right">send</i><i class="material-icons left">send</i>
+        </button>
+    </div>
+
+    <!-- This only shows if they enter correct info for an existing user -->
+    <div class="returningMember">
+        <h3><span id="welcome_back"></span></h3>
+        <h4>There have been <span id="newPeeps"></span> new people here since you last signed up</h4>
+        <h4>Please click the search button to see your current closest match.</h4>
+    </div>
+
+    <h4>
+        <!-- This will alert them to whom they are the closest match with -->
+        <div id="searchResult"></div>
+    </h4> 
+
+    <!-- This is the search for matches button. It will only appear after they enter info for an existing user -->
+    <div class="row center-align" id="newSearch">
+        <button class="btn-large waves-effect waves-light" id="newSearch" type="submit" name="action">Search for Matches
+            <i class="material-icons right">send</i><i class="material-icons left">send</i>
+        </button>
+    </div>
+
+    <br>
+    <!-- This will display the picture of the closest match -->
+    <div class="row">
+        <div class="col m4 offset-m4">
+            <img id="imgMatch" style="height:300px; width:300px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer info at the bottom of the page -->
+    <footer class="page-footer blue lighten-1">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="col s12 left-align">
+                    <a class="white-text" href="/">Complete the Survey!</a> | 
+                    <a class="white-text" href="/api">See all the Friends (Friends API)</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

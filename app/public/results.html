@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Friend Finder</title>
-    <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified CSS (Materialize) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,56 +20,61 @@
 </head>
 <body>
 
-<nav>
-    <div class="nav-wrapper blue lighten-1">
-        <a href="/" class="brand-logo center">Friend Finder</a>
-        <ul class="left hide-on-med-and-down">
-            <li><a href="/">Survey</a></li>
-            <li><a href="/searchagain">Search Again</a></li>
-        </ul>
-    </div>
-</nav>
+    <!-- Top of the page -->
+    <nav>
+        <div class="nav-wrapper blue lighten-1">
+            <a href="/" class="brand-logo center">Friend Finder</a>
+            <ul class="left hide-on-med-and-down">
+                <li><a href="/">Survey</a></li>
+                <li><a href="/searchagain">Search Again</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="container">
-    <div class="col s12 center-align">
-        <h1><strong>Welcome to Friend Finder</strong></h1>
-        <h3>A place to meet other friends, like you!</h3>
-        <h5>We found someone with similar responses...</h5>
-    </div>
-</div>
-
-<br>
-<h2 class="center-align">You are closest matched with <span id="match"></span></h2>
-<br>
-
-<div class="row">
-    <div class="col m4 offset-m4">
-        <img id="imgMatch" style="height:300px; width:300px;">
+    <div class="container">
+        <div class="col s12 center-align">
+            <h1><strong>Welcome to Friend Finder</strong></h1>
+            <h3>A place to meet other friends, like you!</h3>
+            <h5>We found someone with similar responses...</h5>
         </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col m10 offset-m1">
-        <div class="card-panel" id="comeBack">
-            <h5>To check later if you have any other matches, please visit the Search Again page / button and remember...</h5>
-            <li>Your name... <span id="userName"></span></li>
-            <li>Your unique ID#... <span id="uniqueID"></span></li>
-        </div>
-    </div>
-</div>
-
-<footer class="page-footer blue lighten-1">
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="col s12 left-align">
-                <a class="white-text" href="/">Complete the Survey!</a> | 
-                <a class="white-text" href="/searchagain">Search Again</a> | 
-                <a class="white-text" href="/api">See all the Friends (Friends API)</a>
+    <br>
+    <!-- This displays the name of the person they closest match with. AND it blinks! -->
+    <h2 class="center-align">You are closest matched with <span id="match"></span></h2>
+    <br>
+    
+    <!-- This displays the picture of the person they closest match with -->
+    <div class="row">
+        <div class="col m4 offset-m4">
+            <img id="imgMatch" style="height:300px; width:300px;">
             </div>
         </div>
     </div>
-</footer>
+
+    <!-- This shows after they have been matched with someone.  It allows them to visit the page in the future to check if anyone else better matches them. This will only work if the server is always running -->
+    <div class="row">
+        <div class="col m10 offset-m1">
+            <div class="card-panel" id="comeBack">
+                <h5>To check later if you have any other matches, please visit the Search Again page / button and remember...</h5>
+                <li>Your name... <span id="userName"></span></li>
+                <li>Your unique ID#... <span id="uniqueID"></span></li>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer info at the bottom of the page -->
+    <footer class="page-footer blue lighten-1">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="col s12 left-align">
+                    <a class="white-text" href="/">Complete the Survey!</a> | 
+                    <a class="white-text" href="/searchagain">Search Again</a> | 
+                    <a class="white-text" href="/api">See all the Friends (Friends API)</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

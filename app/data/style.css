@@ -6,34 +6,47 @@ h1, h3 {
 	color: blue;
 }
 
-.questions { color: purple; }
+.questions {
+	color: purple;
+}
 
-.offset-s3, #icon_prefix_name { color: red; }
+.offset-s3, #icon_prefix_name {
+	color: red;
+}
 
 .notShown {
 	color: green;
 }
 
-#img1 { position: absolute;
+#img1 { 
+	position: absolute;
 }
 
-#img2 { position: absolute;
-right: 0px; }
+#img2 { 
+	position: absolute;
+	right: 0px;
+}
 
 .browser-default {
 	background-color: cyan;
 }
 
-p { color: cyan; }
-#comeBack { background-color: orange;
-color: yellow; }
+p { 
+	color: cyan;
+}
 
-#match { color: red; }
+#comeBack { 
+	background-color: orange;
+	color: yellow;
+}
+
+#match { 
+	color: red;
+}
 
 #imgMatch {
 	margin-left: 
 }
-
 
 /* This is for changing the placeholder color (depending on the browser used) */
 ::-webkit-input-placeholder { /* Chrome */

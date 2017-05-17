@@ -14,10 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-require("./app/routing/htmlRoutes")(app);
 require("./app/routing/apiRoutes")(app);
-
-// app.use(express.static(path.join(__dirname, "app")));
+require("./app/routing/htmlRoutes")(app);
 
 // Starts the server to begin listening
 app.listen(PORT, function() {

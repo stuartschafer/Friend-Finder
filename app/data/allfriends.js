@@ -1,6 +1,3 @@
-
-
-
 // This is the inital array of people
 var friendArray = [{
     name: "Rudy",
